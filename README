@@ -1,0 +1,6 @@
+Some useful scripts I wrote for various purpouse - free to use
+==============================================================
+
+typedef_dump.pl - dumps all "typedef struct" from a source tree to craft a .h file which can be loaded to IDA Pro.
+
+... more to be added later on
