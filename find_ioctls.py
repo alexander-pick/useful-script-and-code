@@ -32,7 +32,7 @@ for caller in XrefsTo(dioc_ea, True):
     if caller_ea not in callerList:
         # IDA Pro shifts duplicates, get rid of them
         callerList.append(caller_ea)
-        print "xref @ 0x%08x (%s)" % (caller_ea, GetFunctionName(caller_ea))
+        print "xref @ 0x%08x (%s)" % (caller_ea, get_func_name(caller_ea))
     else:
         continue
 
@@ -43,7 +43,7 @@ for caller in XrefsTo(dioc_ea, True):
         disasm = GetDisasm(ins)
         if "push" in disasm:
             # Save the PUSH instruction's operand
-            pushQueue.push(GetOpnd(ins, 0))
+            pushQueue.push(print_operand(ins, 0))
         elif ins == caller_ea:
             # At this moment we hit the corresponding CALL instruction
             # First item in Queue is second "oldest" push
